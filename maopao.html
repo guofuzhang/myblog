@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function maop(arr)
+    {
+        for(i=0;i<arr.length;i++)
+        {
+            for(j=i+1;j<arr.length;j++)
+            {
+
+                if(arr[i]>arr[j])
+                {
+                    var kong;
+                    kong=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=kong;
+                }
+            }
+        }
+
+        return arr;
+    }
+arr=[1,2,5,4,3,9,45,25];
+    console.log(maop(arr));
+////for(i=0;i<arr.length;i++)
+////{
+////    for(j=i+1;j<arr.length;j++)
+////    {
+////
+////        if(arr[i]<arr[j])
+////        {
+////            var kong;
+////            kong=arr[i];
+////            arr[i]=arr[j];
+////            arr[j]=kong;
+////        }
+////    }
+////}
+
+
+
+
+
+
+
+
+function digui(n)
+{
+    if(n==1)
+    {
+        return 1;
+    }else
+    {
+        return n*digui(n-1);
+    }
+}
+
+console.log(digui(5));
+</script>
+</body>
+</html>
