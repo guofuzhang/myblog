@@ -33,7 +33,7 @@ class wechatCallbackapiTest
               	$postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
                 $fromUsername = $postObj->FromUserName;
                 $toUsername = $postObj->ToUserName;
-                $keyword = trim($postObj->Content);
+                $keyword = trim($postObj->Content);//这个是发送过来的内容
                 $time = time();
                 $textTpl = "<xml>
 							<ToUserName><![CDATA[%s]]></ToUserName>
@@ -47,11 +47,44 @@ class wechatCallbackapiTest
                 switch ($MsgType)
                 {
                     case "text":
-                        $msgType="text";
-                        $contentStr = "文采飞扬,不错,继续努力吧";
-                        $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-                        echo $resultStr;
+                        if($keyword=="?"){ $msgType="text";
+//                        '\r'是回车，'\n'是换行，前者使光标到行首，后者使光标下移一格，通常敲一个回车键，即是回车，又是换行（\r\n）。Unix中每行结尾只有“<换行>”，即“\n”；Windows中每行结尾是“<换行><回车>”，即“\n\r”；Mac中每行结尾是“<回车>”。
+                            $contentStr =  "【1】特种服务号码\r\n【2】通讯服务号码\r\n【3】银行服务号码\r\n【4】用户反馈\r\n";
+                            $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                            echo $resultStr;}else if($keyword=="1"){ $msgType="text";
+//
+                            $contentStr = "常用特种服务号码：
+匪警：110
+火警：119
+急救中心：120";
+                            $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                            echo $resultStr;}else if($keyword=="2"){ $msgType="text";
+//
+                            $contentStr = "常用通讯服务号码：
+中移动：10086
+中电信：10000
+中联通：10010";
+                            $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                            echo $resultStr;}else if($keyword=="3"){ $msgType="text";
+//
+                            $contentStr = "银行服务号码
+建设银行：95533
+工商银行：99588
+农业银行：95599";
+                            $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                            echo $resultStr;}else if($keyword=="4"){ $msgType="text";
+//
+                            $contentStr = "尊敬的用户，为了更好的为您服务，请将系统的不足之处反馈给我们。
+反馈格式：@+建议内容";
+                            $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                            echo $resultStr;}else if($keyword=="@"){ $msgType="text";
+//
+                            $contentStr = "感谢您的宝贵建议，我们会努力为您提供更好的服务！";
+                            $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                            echo $resultStr;}
+
                     break;
+//                        图片格式
                     case "image":
                         $msgType="text";
                         $contentStr = "这个图片貌似还阔以";
@@ -95,6 +128,15 @@ class wechatCallbackapiTest
                         $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                         echo $resultStr;
                         break;
+
+                case "event":
+                    if($postObj->Event=="subscribe"){
+                        $msgType="text";
+                        $contentStr = "所有的坚持,只为遇见你";
+                        $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                        echo $resultStr;}
+
+                    break;
 
                 }
 
