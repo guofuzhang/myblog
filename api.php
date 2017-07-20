@@ -146,7 +146,9 @@ class wechatCallbackapiTest
 
                     case "location":
                         $msgType="text";
-                        $contentStr = "纵里寻她,不如发个位置给她";
+                        $positionx=$postObj->Location_X;
+                        $positiony=$postObj->Location_Y;
+                        $contentStr = "我知道你在哪里了，纬度是{$positionx},经度是{$positiony}，你跑不了了";
                         $resultStr = sprintf($arr['textTpl'], $fromUsername, $toUsername, $time, $msgType, $contentStr);
                         echo $resultStr;
                         break;
