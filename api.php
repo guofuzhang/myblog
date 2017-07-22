@@ -26,6 +26,7 @@ class wechatCallbackapiTest
 		//get post data, May be due to the different environments
 		$postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
 
+
       	//extract post data
 
 		if (!empty($postStr)){
@@ -37,8 +38,8 @@ class wechatCallbackapiTest
                 $toUsername = $postObj->ToUserName;
                 $keyword = trim($postObj->Content);//这个是发送过来的内容
                 $time = time();
+            $Recognition=$postObj->Recognition;
                 global $arr;
-
                 $MsgType=$postObj->MsgType;//定义变量接收传递过来的类型
                 switch ($MsgType)
                 {
@@ -108,8 +109,18 @@ class wechatCallbackapiTest
                                     <PicUrl><![CDATA[http://weiweixin.applinzi.com/image/{$i}.jpg]]></PicUrl>
                                     <Url><![CDATA[www.kuaidianwoba.com]]></Url>
                                     </item>";
+                                $resultStr = sprintf($arr['newsTpl'], $fromUsername, $toUsername, $time, $msgType,$count,$item);
+                                echo $resultStr;
                             }
-                            $resultStr = sprintf($arr['newsTpl'], $fromUsername, $toUsername, $time, $msgType,$count,$item);
+                            }else{
+                                $msgType="text";
+                                $key="d5567df93bfc43739c37cfedbff90483";
+                                $url="http://www.tuling123.com/openapi/api?key={$key}&info={$keyword}";
+//
+                          $res=file_get_contents($url);
+                          $res=json_decode($res);
+                          $contentStr=$res->text;
+                            $resultStr = sprintf($arr['textTpl'], $fromUsername, $toUsername, $time, $msgType, $contentStr);
                             echo $resultStr;}
 
                     break;
@@ -125,7 +136,7 @@ class wechatCallbackapiTest
 
                     case "voice":
                         $msgType="text";
-                        $contentStr = "这个声音在颤抖";
+                        $contentStr = "您发送的是一个语音,消息是{$Recognition}";
                         $resultStr = sprintf($arr['textTpl'], $fromUsername, $toUsername, $time, $msgType, $contentStr);
                         echo $resultStr;
                         break;
