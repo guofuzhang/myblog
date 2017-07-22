@@ -1,0 +1,46 @@
+<?php
+//定义一个数组，用于存储微信公众平台发送给手机端的xml模板
+$tpl = array(
+	'textTpl'=>"<xml>
+				<ToUserName><![CDATA[%s]]></ToUserName>
+				<FromUserName><![CDATA[%s]]></FromUserName>
+				<CreateTime>%s</CreateTime>
+				<MsgType><![CDATA[%s]]></MsgType>
+				<Content><![CDATA[%s]]></Content>
+				<FuncFlag>0</FuncFlag>
+				</xml>",
+	'imageTpl'=>"<xml>
+				<ToUserName><![CDATA[%s]]></ToUserName>
+				<FromUserName><![CDATA[%s]]></FromUserName>
+				<CreateTime>%s</CreateTime>
+				<MsgType><![CDATA[%s]]></MsgType>
+				<Image>
+				<MediaId><![CDATA[%s]]></MediaId>
+				</Image>
+				</xml>",
+	'musicTpl'=>"<xml>
+				<ToUserName><![CDATA[%s]]></ToUserName>
+				<FromUserName><![CDATA[%s]]></FromUserName>
+				<CreateTime>%s</CreateTime>
+				<MsgType><![CDATA[%s]]></MsgType>
+				<Music>
+				<Title><![CDATA[%s]]></Title>
+				<Description><![CDATA[%s]]></Description>
+				<MusicUrl><![CDATA[%s]]></MusicUrl>
+				<HQMusicUrl><![CDATA[%s]]></HQMusicUrl>
+				</Music>
+				</xml>",
+	'newsTpl'=>"<xml>
+				<ToUserName><![CDATA[%s]]></ToUserName>
+				<FromUserName><![CDATA[%s]]></FromUserName>
+				<CreateTime>%s</CreateTime>
+				<MsgType><![CDATA[%s]]></MsgType>
+				<ArticleCount>%s</ArticleCount>
+				<Articles>
+				%s
+				</Articles>
+				</xml>"
+);
+
+
+?>
