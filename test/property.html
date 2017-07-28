@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var obj1={
+        'name':111
+    }
+    var obj2={}
+
+    Object.defineProperty(obj2,'name',{
+        get: function () {
+            console.log('取我了吗')
+            // 函数默认的返回值是undefined
+            return obj1.name
+        },
+        // 当我们对vm.name进行赋值是会自动调用!// vm.name = 18
+        set: function (xx) {
+            // 当我们给vm.name赋值时, 这里的参数xx就是赋的那个值!
+//            console.log(xx)
+            console.log('设置我了吗')
+            obj1.name=xx//把 参数 传递过来的值2传递过去
+        }
+
+
+    })
+
+    obj2.name="abc";
+    console.log(obj1.name);
+</script>
+</html>
