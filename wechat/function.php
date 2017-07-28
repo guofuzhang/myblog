@@ -7,11 +7,13 @@
  */
 //$data post请求是传输的数据
 //封装一个curl请求函数,通过curl获取到的返回值的达到token
+error_reporting(0);
 function curl_http($url,$data=null){
     $ch=curl_init();//格式化输出
     curl_setopt($ch,CURLOPT_URL,$url);//设置请求的地址
     curl_setopt($ch,CURLOPT_SSL_VERIFYHOST,false);////post请求禁止服务器端ssl验证
     curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,false);
+    curl_setopt($ch,CURLOPT_SAFE_UPLOAD,false);
 //    判断数据请求方式,post还是get请求,如果传递过来有data,则是post
     if(!empty($data)){
         curl_setopt($ch,CURLOPT_POST,1);

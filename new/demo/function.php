@@ -4,6 +4,10 @@
 //思考：函数的参数，函数的返回值
 //函数的参数1:请求的url,参数2:post请求时传输的数据
 //函数的返回值，就是直接请求的结果
+
+
+
+
 function curl_http($url,$data=null){
 	$ch = curl_init();
 	curl_setopt($ch,CURLOPT_URL,$url);
