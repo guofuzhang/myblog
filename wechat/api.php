@@ -176,7 +176,23 @@ class wechatCallbackapiTest
                         $msgType="text";
                         $contentStr = "所有的坚持,只为遇见你";
                         $resultStr = sprintf($arr['textTpl'], $fromUsername, $toUsername, $time, $msgType, $contentStr);
-                        echo $resultStr;}
+                        echo $resultStr;}else
+                            if ($postObj->Event=="CLICK"){
+                   if($postObj->EventKey=="V1001_TODAY_MUSIC"){
+                       $msgType="music";
+                       $title="来吧,一起震撼";
+                       $desc="张学友原声大碟,不容错过";
+                       $music="http://weiweixin.applinzi.com/music.mp3";
+                       $resultStr = sprintf($arr['musicTpl'], $fromUsername, $toUsername, $time, $msgType,$title,$desc,$music,$music);
+                       echo $resultStr;
+                   } else if($postObj->EventKey=="VV1001_GOOD"){
+                       $msgType="text";
+                       $contentStr = "感谢你的点赞,我们会做的更好";
+                       $resultStr = sprintf($arr['textTpl'], $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                       echo $resultStr;
+                                }
+
+                    }
 
                     break;
 
