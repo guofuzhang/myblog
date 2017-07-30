@@ -1,0 +1,30 @@
+﻿# Host: localhost  (Version: 5.5.24)
+# Date: 2017-05-31 00:04:07
+# Generator: MySQL-Front 5.3  (Build 4.269)
+
+/*!40101 SET NAMES utf8 */;
+
+#
+# Structure for table "user"
+#
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(20) NOT NULL,
+  `password` char(32) NOT NULL,
+  `name` varchar(16) NOT NULL,
+  `tel` varchar(50) NOT NULL,
+  `last_login_ip` char(15) DEFAULT NULL,
+  `last_login_time` int(10) DEFAULT NULL,
+  `login_times` int(11) NOT NULL DEFAULT '0',
+  `status` smallint(1) NOT NULL DEFAULT '1',
+  `role` tinyint(1) NOT NULL DEFAULT '0',
+  `addate` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+
+#
+# Data for table "user"
+#
+
+INSERT INTO `user` VALUES (1,'admin','e10adc3949ba59abbe56e057f20f883e','姚长江','13671181498','127.0.0.1',1494557101,65,1,1,1480752803),(2,'zhang','e10adc3949ba59abbe56e057f20f883e','张三丰','13011057863','127.0.0.1',1481015252,1,1,0,1480753057),(3,'wangwu','e10adc3949ba59abbe56e057f20f883e','王志刚','13011023432',NULL,NULL,0,1,0,1480753776),(4,'itcast','e10adc3949ba59abbe56e057f20f883e','传智播客','41088089877',NULL,NULL,0,1,0,1480754928),(5,'hahaha','e10adc3949ba59abbe56e057f20f883e','娃哈哈','13399878765',NULL,NULL,0,1,0,1480755013),(6,'jiyuan','e10adc3949ba59abbe56e057f20f883e','史丽娟','13011023456',NULL,NULL,0,1,0,1480758120),(8,'beijing2000','e10adc3949ba59abbe56e057f20f883e','北京城','010-12345432',NULL,NULL,0,1,0,1480811927),(9,'shanghai','d41d8cd98f00b204e9800998ecf8427e','上海市','13411232345',NULL,NULL,0,1,0,1480818042),(11,'wangwang','e10adc3949ba59abbe56e057f20f883e','汪汪明','110120130',NULL,NULL,0,1,0,1483615395),(12,'yaoyao','e10adc3949ba59abbe56e057f20f883e','姚东平','13811023456',NULL,NULL,0,1,0,1483615575),(13,'liuliu','e10adc3949ba59abbe56e057f20f883e','刘姥姥','13552641803',NULL,NULL,0,0,0,1483615698),(14,'fangfang','e10adc3949ba59abbe56e057f20f883e','王芳芳','13011023432',NULL,NULL,0,1,0,1483695280),(15,'a1234','0a4e700b23bd53fc6b1e0ae863c3e486','周俊英','010-82932822',NULL,NULL,0,1,0,1483863733),(16,'a8765','e10adc3949ba59abbe56e057f20f883e','王旧兵','13552641803',NULL,NULL,0,0,1,1483863782),(18,'asbfg','8724aa758c2f662d79952870ef486ea6','张三峰','13019045678',NULL,NULL,0,1,0,1484016029),(19,'wangming','e10adc3949ba59abbe56e057f20f883e','王明','130334543456',NULL,NULL,0,1,0,1484188733),(20,'liming','e10adc3949ba59abbe56e057f20f883e','李明','130110234566',NULL,NULL,0,1,0,1484188852),(21,'98765','827ccb0eea8a706c4c34a16891f84e7b','李明明','13011045645',NULL,NULL,0,1,0,1484189484),(22,'a2345','e10adc3949ba59abbe56e057f20f883e','周栋','010-82932822',NULL,NULL,0,1,0,1484216192);

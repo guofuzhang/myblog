@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div id="app">
+        <div><p v-text="name"></p></div>
+        <div v-html="text"></div>
+    </div>
+</head>
+<body>
+<script src="vue.js"></script>
+<script>
+ var vue=new Vue({
+     el:'#app',
+     data:function () {
+        return{
+            name:'jim',
+            age:18,
+            text:'<h2>标题2</h2>',
+        }
+     },
+ })
+</script>
+</body>
+</html>
