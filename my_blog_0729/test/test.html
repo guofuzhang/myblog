@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,9 +8,15 @@
     <title>Document</title>
 </head>
 <body>
-<form action="http://www.fast.com/0718/my_blog_0729/test/test.php" method="post">
-    <input name="abc" type="text">
-    <input type="submit" value="提交">
-</form>
+<p id="p1"></p>
 </body>
+<script>
+    document.getElementById("p1").innerHTML=5;
+    function miaosha(n) {
+        if(--n>0){
+            window.setTimeout("",1000)
+        }
+
+    }
+</script>
 </html>

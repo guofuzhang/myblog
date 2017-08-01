@@ -1,6 +1,4 @@
 <?php
-//声明命名空间
-namespace Frame;
 //框架的初始类文件
 final class Frame{
 	

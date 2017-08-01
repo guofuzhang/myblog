@@ -418,6 +418,7 @@ h1 span{
     width:50%;
     height:50%;
     overflow:hidden;
+    display: none;
     border:0.3rem solid #fff;
     position:absolute;
     left:50%;

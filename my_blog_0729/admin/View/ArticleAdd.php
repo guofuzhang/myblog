@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <link href="../View/Css/public.css" rel="stylesheet" type="text/css" />
 <title>文章管理</title>
+    <script src="../View/Js/jquery.js"></script>
 <script charset="utf-8" src="../View/Js/editor/kindeditor-min.js"></script>
 <script charset="utf-8" src="../View/Js/editor/lang/zh_CN.js"></script>
 <script type="text/javascript">
@@ -28,7 +29,7 @@ KindEditor.ready(function(K) {
 	</tr>
 </table>
 <br />
-<form name="form1" method="post" action="">
+<form name="form1" method="post" action="" enctype="multipart/form-data">
 <table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="border">
 	<tr class="title"><td colspan="2" align="center">添加文章</td></tr>
 	<tr class="tdbg">
@@ -45,6 +46,23 @@ KindEditor.ready(function(K) {
 		<td height="30"  align="right">标&nbsp;&nbsp;题：</td>
 		<td><input name="title" type="text" size="90" maxlength="50" /></td>
 	</tr>
+
+	<tr class="tdbg">
+		<td height="30"  align="right">作者：</td>
+		<td><input name="author" type="text" size="90" maxlength="50" /></td>
+	</tr>
+
+	<tr class="tdbg">
+		<td height="30"  align="right">摘要：</td>
+		<td><input name="main" type="text" size="90" maxlength="50" /></td>
+	</tr>
+
+
+
+    <tr class="tdbg">
+        <td height="30"  align="right">图片上传：</td>
+        <td><input id="file_upload" name="file_upload" type="file" ></td>
+    </tr>
 	<tr class="tdbg">
 		<td height="30" align="right">排&nbsp;&nbsp;序：</td>
 		<td>
@@ -66,5 +84,8 @@ KindEditor.ready(function(K) {
 	</tr>
 </table>
 </form>
+
 </body>
+
+
 </html>
