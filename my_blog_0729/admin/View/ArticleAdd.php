@@ -23,7 +23,7 @@ KindEditor.ready(function(K) {
 	<tr class="topbg"><td>文章管理</td></tr>
 	<tr class="tdbg">
 		<td height="30">&nbsp;&nbsp;
-			<a href="#">管理首页</a>&nbsp;|&nbsp;
+			<a href="http://www.2017.com/my_blog_0729/admin/Controller/articlelist_controller.php">文章管理</a>&nbsp;|&nbsp;
 			<a href="#">添加文章</a>
 		</td>
 	</tr>

@@ -97,6 +97,27 @@ final class connect_sql
 
     }
 
+
+    public function fetchOne($sql,$type)
+    {
+        $res=$this->query($sql);
+        if (!empty($res)){
+           $arr1=mysql_fetch_array($res,$type);
+
+            if (!empty($arr1)){return $arr1;}else{
+                return "nothing in your table";
+            }
+        }
+
+
+
+    }
+
+
+
+
+
+
     public function get_count($sql)
     {
         $res=$this->query($sql);

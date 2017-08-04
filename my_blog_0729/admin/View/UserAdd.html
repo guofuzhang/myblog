@@ -118,7 +118,7 @@ $(function () {
 		var shuju=$(this).serialize();
         console.log(shuju);
         $.ajax({
-       url:'http://www.fast.com/0718/my_blog_0729/admin/Controller/index_controller.php',
+       url:location.href,
        data:shuju,
        datatype:'json',
        type:'post',

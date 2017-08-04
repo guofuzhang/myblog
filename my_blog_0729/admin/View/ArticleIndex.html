@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link href="./Css/public.css" rel="stylesheet" type="text/css" />
+<link href="../View/Css/public.css" rel="stylesheet" type="text/css" />
+	<script src="../View/Js/jquery.js"></script>
 <title>文章管理</title>
 </head>
 
@@ -12,8 +13,8 @@
 	<tr class="topbg"><td>文章管理</td></tr>
 	<tr class="tdbg">
 		<td height="30">&nbsp;&nbsp;
-			<a href="#">管理首页</a>&nbsp;|&nbsp;
-			<a href="#">添加文章</a>
+			<a href="http://www.2017.com/my_blog_0729/admin/Controller/articlelist_controller.php">管理文章</a>&nbsp;|&nbsp;
+			<a href="http://www.2017.com/my_blog_0729/admin/Controller/article_controller.php">添加文章</a>
 		</td>
 	</tr>
 </table>
@@ -41,28 +42,51 @@
 	<td>分类</td>
 	<td>标题</td>
 	<td>作者</td>
+	<td>图片地址</td>
 	<td>发布时间</td>
 	<td>操作选项</td>
 </tr>
+	<{foreach $arrs as $arr}>
 <tr class="tdbg" align="center">
-	<td>10010</td>
-	<td>新闻咨询</td>
+	<td><{$arr['art_id']}></td>
+	<{if $arr['category_id']==0}>
+	<td>未分类</td>
+	<{elseif $arr['category_id']==1 }>
+	<td>新闻资讯</td>
+	<{elseif $arr['category_id']==2 }>
+	<td>php培训</td>
+	<{/if}>
 	<td align="left">
-		<a target="_blank" href="#">传智播客上市了！</a>
+		<a target="_blank" href="http://www.kuaidianwoba.com/home/Controller/article_controller.php?id=<{$arr['art_id']}>"><{$arr['art_title']}></a>
 		[<font color="red">顶</font>]
 	</td>
-	<td>admin</td>
-	<td>2016-10-12</td>
+	<td><{$arr['AUTHORS']}></td>
+	<td><{$arr['img']}></td>
+	<td><{$arr['created_at']}></td>
 	<td>
-		<a href="#">修改</a> | 
-		<a href="#">删除</a>
+		<!--?id=<{$arr['art_id']}>-->
+		<a href="http://www.2017.com/my_blog_0729/admin/Controller/articleedit_controller.php?id=<{$arr['art_id']}>">修改</a> |
+		<a href="javascript:void(0)" id="<{$arr['art_id']}>" onclick="confirmdel(<{$arr['art_id']}>)">删除</a>
 	</td>
 </tr>
-
+<{/foreach}>
 <!--文章分页-->
 <tr class="tdbg">
 	<td colspan="7" align="center">分页列表</td>
 </tr>
 </table>
+<script type="text/javascript">
+
+	function confirmdel(id)
+	{
+	    if(window.confirm("您确定删除吗?"))
+	    {
+	        window.location.href="?id="+id;
+		}
+	}
+
+
+
+</script>
 </body>
 </html>

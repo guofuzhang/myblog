@@ -56,7 +56,7 @@ if (!empty($_SESSION['username']))
 }else
     {
         echo "请重新登录";
-        header("refresh:2;url=http://www.fast.com/0718/my_blog_0729/admin/View/login.html");
+        header("refresh:2;url=http://www.2017.com/my_blog_0729/admin/Controller/log_controller.php");
 
     }
 

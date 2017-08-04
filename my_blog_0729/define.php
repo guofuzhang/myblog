@@ -9,5 +9,5 @@ define("DS",DIRECTORY_SEPARATOR);
 $root_path= dirname(__FILE__);
 define("ROOT_PATH",$root_path.DS);
 define("FRAME",ROOT_PATH.DS."Frame".DS);
-define("ZONE","http://www.fast.com/0718/my_blog_0729/" );
+define("ZONE","http://www.2017.com/my_blog_0729/" );
 //echo FRAME;

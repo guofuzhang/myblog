@@ -36,7 +36,7 @@ require_once "base_controller.php";
         $last_time=date('y-m-d H:i:s',time());
         $last_time_str="'$last_time'";
      $sql="insert into article VALUES (null,'$filename',$arr_article_str,$last_time_str)";
-//     echo $sql;
+     echo $sql;
      $mysql_obj->exec($sql);
 
 
